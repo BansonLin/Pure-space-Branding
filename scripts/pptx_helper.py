@@ -39,6 +39,9 @@ FONT_TITLE = "Microsoft JhengHei"  # 正黑體
 FONT_BODY = "Microsoft JhengHei"
 FONT_SERIF = "Microsoft JhengHei"
 
+BRAND_URL = "www.pure-branding.com"
+BRAND_NAME = "璞域品牌策略"
+
 
 def new_presentation() -> Presentation:
     prs = Presentation()

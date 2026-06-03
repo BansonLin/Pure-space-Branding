@@ -399,7 +399,7 @@ def build():
              "目標：8 週內完成命名定稿與主視覺 1.0，銜接 Q4 2026 上市時程。",
              size=14, bold=True, color=DARK_BROWN, align="center")
     add_text(s, Inches(0.5), Inches(6.8), Inches(12.3), Inches(0.4),
-             "璞域品牌策略｜crazywofes@gmail.com", size=11, color=GRAY_70, align="right")
+             "璞域品牌策略｜www.pure-branding.com", size=11, color=GRAY_70, align="right")
     add_page_number(s, 12, TOTAL)
 
     prs.save(OUT)

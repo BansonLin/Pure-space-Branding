@@ -402,7 +402,7 @@ def build():
              "後續可同步處理：人口/家戶/所得補件、商標檢索、命名最終定案、CI 啟動",
              size=12, color=GRAY_70)
     add_text(s, Inches(0.5), Inches(6.7), Inches(12.3), Inches(0.4),
-             "璞域品牌策略｜crazywofes@gmail.com", size=11, color=GRAY_70, align="right")
+             "璞域品牌策略｜www.pure-branding.com", size=11, color=GRAY_70, align="right")
     add_page_number(s, 12, 12)
 
     prs.save(OUT)
