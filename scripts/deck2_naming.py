@@ -34,7 +34,7 @@ def build():
     add_title_bar(s, "簡報目錄", "AGENDA")
     items = [
         "01　命名前提：業主方向與客群定位",
-        "02　「中道」二字的雙重內涵",
+        "02　「中道」二字的三重內涵 (含中道學區優勢)",
         "03　「森活」二字的品牌資產",
         "04　三條命名策略路線總覽",
         "05　路線 A — 純延續「中道森活」",
@@ -60,9 +60,9 @@ def build():
     add_bullets(s, Inches(0.8), Inches(2.45), Inches(5.4), Inches(4.0), [
         "案名：「中道森活」",
         "延續「玉田森活」品牌系列",
-        "命名邏輯：地名 + 森活",
+        "「中道」= 宜蘭中道高中（含幼稚園~高中）",
+        "中道學區是 TA1 / TA2 最強的單一賣點",
         "主視覺：黃底花卉典雅插畫",
-        "主文案：「在繁華之中收藏寧靜，在日常之間遇見家的溫度」",
     ], size=13, line_space=1.4)
 
     add_rect(s, Inches(6.9), Inches(1.7), Inches(5.9), Inches(5.0),
@@ -82,39 +82,43 @@ def build():
 
     # ───── 3. 「中道」的內涵 ─────
     s = add_blank_slide(prs); set_background(s, WHITE)
-    add_title_bar(s, "02　「中道」二字", "地理與哲學的雙重意涵")
+    add_title_bar(s, "02　「中道」二字", "教育、哲學、品牌 — 三重內涵")
 
     layers = [
-        ("地理層", DARK_BROWN, [
-            "壯圍鄉「中道」為當地地段／聚落名",
-            "鄰近順和路、南北五路，",
-            "壯圍鄉內歷史聚落之一",
-            "對在地客（TA2）而言：辨識度極高",
+        ("教育層", ACCENT_RED, [
+            "「中道」= 宜蘭中道高中（私立）",
+            "完整學程：幼稚園→小學→",
+            "國中→高中 一條龍",
+            "宜蘭縣家長心中的優質學區",
+            "對 TA1 返鄉換屋族：",
+            "「孩子教育不用換」是最強誘因",
         ]),
-        ("哲學層", ACCENT_RED, [
+        ("哲學層", DARK_BROWN, [
             "「中庸之道」— 不偏不倚、平衡",
             "對應客群心境：在工作與家、",
             "繁華與寧靜、北漂與返鄉之間",
-            "對返鄉客（TA1）與退休客（TA3）：",
-            "情感共鳴",
+            "對 TA3 退休客：「中道」二字",
+            "本身就有東方文化氣質",
         ]),
         ("品牌層", DARK_BROWN, [
             "兩字結構穩定、字形對稱",
             "視覺上呼應主視覺花卉的均衡感",
-            "與「玉田」（地名）系列延續性強",
-            "與其他建案不易混淆",
+            "「森活」延續玉田森活品牌系列",
+            "「中道」借勢學區、強化辨識度",
         ]),
     ]
     col_w = Inches(4.0); col_h = Inches(4.8); col_y = Inches(1.8)
     for i, (label, color, bullets) in enumerate(layers):
         x = Inches(0.5) + i * Inches(4.2)
-        add_rect(s, x, col_y, col_w, col_h, fill_color=CREAM, line_color=color)
+        # 第一層教育層用 BRAND_YELLOW_SOFT 突顯
+        fill = BRAND_YELLOW_SOFT if i == 0 else CREAM
+        add_rect(s, x, col_y, col_w, col_h, fill_color=fill, line_color=color)
         add_text(s, x, col_y + Inches(0.15), col_w, Inches(0.5),
                  label, size=20, bold=True, color=color, align="center")
         add_bullets(s, x + Inches(0.25), col_y + Inches(0.85), col_w - Inches(0.5), Inches(3.7),
                     bullets, size=12.5, line_space=1.45, bullet_color=color)
 
-    add_footer(s, "中道之於本案：地理錨點 + 心境共鳴 + 品牌延續，三重資產。")
+    add_footer(s, "中道之於本案：學區保證 + 心境共鳴 + 品牌延續，三重資產（學區是最強）")
     add_page_number(s, 3, TOTAL)
 
     # ───── 4. 「森活」的內涵 ─────
@@ -252,7 +256,7 @@ def build():
     add_text(s, Inches(0.7), Inches(6.18), Inches(12), Inches(0.4),
              "推薦理由：「中道森活｜栖」", size=14, bold=True, color=ACCENT_RED)
     add_text(s, Inches(0.7), Inches(6.6), Inches(12), Inches(0.5),
-             "「栖」承接主視覺「在繁華之中收藏寧靜」— 一個字打中三組 TA 的共同價值觀「想要一個落腳的家」。",
+             "「中道」自帶學區優勢｜「森活」延續品牌｜「栖」打中三組 TA「想要落腳的家」。",
              size=12, color=DARK_BROWN, line_space=1.35)
     add_page_number(s, 7, TOTAL)
 
@@ -285,16 +289,16 @@ def build():
 
     rec = [
         ("第一推薦", "中道森活｜栖",
-         "TA3 退休置產 + TA1 返鄉換屋",
-         "「在繁華之中，找到一個栖息」",
+         "TA1 返鄉換屋 + TA3 退休置產",
+         "「中道學區一條龍｜在繁華之中栖息」",
          BRAND_YELLOW, WHITE),
-        ("第二推薦", "中道森活 III",
-         "TA1 返鄉換屋 + TA2 在地二代",
-         "「鼎弘森活，第三個家的故事」",
-         CREAM, DARK_BROWN),
-        ("第三推薦", "中道森活",
+        ("第二推薦", "中道森活",
          "全 TA 安全牌",
-         "「玉田之後，中道再續」",
+         "「孩子在中道，家就在中道」",
+         CREAM, DARK_BROWN),
+        ("第三推薦", "中道森活 III",
+         "TA1 + TA2",
+         "「鼎弘森活，第三個家的故事」",
          CREAM, DARK_BROWN),
     ]
     box_h = Inches(1.55); y0 = Inches(1.85)
@@ -354,24 +358,28 @@ def build():
     s = add_blank_slide(prs); set_background(s, WHITE)
     add_title_bar(s, "10　商標 / 域名 / 法規檢查清單",
                   "命名定案前的 5 項驗證")
-    add_table(s, Inches(0.5), Inches(1.7), Inches(12.3), Inches(4.5),
+    add_table(s, Inches(0.5), Inches(1.7), Inches(12.3), Inches(4.0),
               ["#", "檢查項", "工具", "現況", "風險"],
               [
                   ["1", "商標檢索（智財局）", "tipo.gov.tw 商標檢索系統",
                    "待查「中道森活」、「中道森活｜栖」", "可能與既有商標衝突"],
                   ["2", "591 案名查重", "market.591.com.tw",
                    "已查無同名宜蘭案", "✅ 通過"],
-                  ["3", "Google 搜尋衝突", "Google",
-                   "需確認無同名公司／品牌", "依命名而定"],
-                  ["4", "域名可用性", "Google Domains、Gandi",
-                   "建議買 zhong-dao-sen-huo.com / .tw", "易被搶註"],
+                  ["3", "中道高中關係", "正面接觸 / 法律意見",
+                   "「中道」二字非高中專屬名詞、借勢學區為描述性使用", "建議事前通知、可能合作"],
+                  ["4", "Google / 域名 / 社群", "Google、Gandi、Meta",
+                   "zhongdao-life.com / .tw、IG / FB 帳號註冊", "易被搶註"],
                   ["5", "Facebook / IG 帳號", "Meta",
                    "建議同步註冊", "易被搶註"],
               ],
-              header_size=12, body_size=11.5, first_col_bold=True)
-    add_text(s, Inches(0.5), Inches(6.4), Inches(12.3), Inches(0.5),
-             "璞域可代執行第 1、4、5 項；建議命名定案後 5 個工作天內完成。",
-             size=13, color=DARK_BROWN, bold=True)
+              header_size=12, body_size=11, first_col_bold=True, body_align="left")
+    add_rect(s, Inches(0.5), Inches(5.9), Inches(12.3), Inches(1.0),
+             fill_color=BRAND_YELLOW_SOFT, line_color=DARK_BROWN)
+    add_text(s, Inches(0.7), Inches(6.0), Inches(12), Inches(0.4),
+             "與中道高中的關係建議", size=13, bold=True, color=ACCENT_RED)
+    add_text(s, Inches(0.7), Inches(6.4), Inches(12), Inches(0.5),
+             "建議業主在開賣前與中道高中行政部接觸，把「中道森活」定位為「中道學區的住宅選項」— 借勢但不侵權，且可開啟未來合作可能（教師家庭購屋優惠等）。",
+             size=11, color=DARK_BROWN, line_space=1.4)
     add_page_number(s, 11, TOTAL)
 
     # ───── 12. 下一步 ─────
